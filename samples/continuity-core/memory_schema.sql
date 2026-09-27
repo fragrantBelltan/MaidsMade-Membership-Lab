@@ -1,5 +1,5 @@
--- Public illustrative schema.
--- This is intentionally simplified and is not the production schema.
+-- Generic public schema example.
+-- This is intentionally simplified and is not a production schema.
 
 CREATE TABLE memories (
     id TEXT PRIMARY KEY,
@@ -23,4 +23,4 @@ CREATE TABLE decisions (
 
 -- Concept:
 -- memories  = what actually happened
--- decisions = what the individual decided from available evidence/state
+-- decisions = what the individual decided from available evidence and state
