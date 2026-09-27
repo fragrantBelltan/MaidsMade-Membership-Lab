@@ -1,6 +1,7 @@
-"""Public illustrative sample for MaidsMade Membership Lab.
+"""Generic public example for an identity/continuity architecture.
 
-This is intentionally simplified and is not the production implementation.
+This sample is intentionally simplified and contains no production identity,
+character name, user data, or internal implementation detail.
 """
 
 from dataclasses import dataclass, field
@@ -9,26 +10,26 @@ from uuid import uuid4
 
 
 @dataclass
-class MaidIdentity:
+class AgentIdentity:
     individual_id: str
-    born_at: str
-    name: str
+    created_at: str
+    display_name: str
     values: list[str] = field(default_factory=list)
 
 
-def create_individual(name: str, values: list[str]) -> MaidIdentity:
-    """Create one individual, separate from the LLM used to speak for it."""
-    return MaidIdentity(
+def create_individual(display_name: str, values: list[str]) -> AgentIdentity:
+    """Create one continuing individual independently from any specific LLM."""
+    return AgentIdentity(
         individual_id=uuid4().hex,
-        born_at=datetime.now(timezone.utc).isoformat(),
-        name=name,
+        created_at=datetime.now(timezone.utc).isoformat(),
+        display_name=display_name,
         values=list(values),
     )
 
 
 if __name__ == "__main__":
-    maid = create_individual(
-        name="sample-maid",
-        values=["remember experiences", "respect corrections"],
+    agent = create_individual(
+        display_name="sample-agent",
+        values=["preserve experience", "respect corrections"],
     )
-    print(maid)
+    print(agent)
